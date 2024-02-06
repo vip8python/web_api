@@ -1,12 +1,7 @@
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column
 from .base import Base
-from sqlalchemy import String, Text, ForeignKey
-from typing import TYPE_CHECKING
-
+from sqlalchemy import String, Text
 from .mixins import UserRelationMixin
-
-if TYPE_CHECKING:
-    from .user import User
 
 
 class Post(UserRelationMixin, Base):
@@ -19,5 +14,3 @@ class Post(UserRelationMixin, Base):
         default='',
         server_default='',
     )
-
-
